@@ -1,0 +1,89 @@
+:root {
+    --square-size:50px;
+    --square-offset:5px;
+    --square-border-width:2px;
+}
+
+.squares-wrapper {
+    display: flex;
+    padding: var(--square-size);
+}
+
+.squares {
+    padding: calc(var(--square-size) + calc(var(--square-offset) - 1px));
+    position: relative;
+}
+
+.squares table {
+    border: solid 1px #48aae6;
+}
+
+.squares table td {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    background-color: #48aae6;
+    padding: 0;
+}
+
+
+.plus, .minus {
+    width: 50px;
+    height: 50px;
+    border: solid var(--square-border-width) white;
+    color: white;
+    padding:0;
+    font-size: 22px;
+    font-weight: bold;
+    position: absolute;
+    transition: opacity 0.5s;
+    box-sizing: initial;
+}
+
+.plus:hover, .minus:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.plus {
+    background-color: #f3a500;
+}
+
+.minus {
+    background-color: #b20000;
+    display: none;
+    transition: left 0.2s, top 0.2s;
+}
+
+.minus.show {
+    display: block;
+}
+
+.plus:before {
+    content: '+';
+}
+
+.minus:before {
+    content: '\2013';
+}
+
+.plus.row {
+    bottom:0;
+    left: calc(var(--square-size) + var(--square-offset))
+}
+
+.plus.column {
+    right:0;
+    top: calc(var(--square-size) + var(--square-offset))
+}
+
+
+.minus.row {
+    top: calc(var(--square-size) + var(--square-offset));
+    left: 0;
+}
+
+.minus.column {
+    top:0;
+    left: calc(var(--square-size) + var(--square-offset));
+}
